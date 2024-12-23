@@ -1,4 +1,3 @@
-// filepath: /C:/Git Hub/intership 2/real-time-collaboration-tool/src/Login.js
 import React from 'react';
 
 function Login() {
