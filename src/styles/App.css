@@ -13,16 +13,14 @@ body {
 }
 
 .App-header {
-  background-color: #ffffff;
+  background-color: #282c34;
   padding: 20px;
-  color: #333;
-  border-bottom: 1px solid #e0e0e0;
+  color: white;
 }
 
 .App-header h1 {
   margin: 0;
   font-size: 2.5rem;
-  font-weight: 300;
 }
 
 nav {
@@ -33,7 +31,6 @@ nav a {
   margin-right: 10px;
   text-decoration: none;
   color: #007bff;
-  font-weight: 500;
 }
 
 .content {
@@ -99,21 +96,22 @@ body.dark-mode button:hover {
   background-color: #3700b3;
 }
 
-@media (max-width: 600px) {
-  .App {
-    padding: 10px;
-  }
+body.dark-mode .content {
+  background-color: #333;
+  color: #ffffff;
+}
 
-  .content {
-    padding: 10px;
-  }
+body.dark-mode form {
+  background-color: #444;
+  border: 1px solid #555;
+}
 
-  form {
-    padding: 10px;
-  }
+body.dark-mode input {
+  background-color: #555;
+  color: #ffffff;
+  border: 1px solid #666;
+}
 
-  nav a {
-    display: block;
-    margin: 5px 0;
-  }
+body.dark-mode label {
+  color: #ffffff;
 }
