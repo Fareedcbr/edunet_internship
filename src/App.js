@@ -1,32 +1,43 @@
-import React, { useState } from 'react';
-import Navbar from './components/Navbar';
-import Login from './components/Login';
+import React, { useState, useEffect } from 'react';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import LandingPage from './components/LandingPage';
 import Register from './components/Register';
-import './styles/App.css'; // Import the CSS file
+import Login from './components/Login';
+import './styles/App.css'; // Ensure this path is correct
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-    document.body.classList.toggle('dark-mode', !darkMode);
+    setIsDarkMode((prevMode) => !prevMode);
+    console.log('Dark mode toggled:', !isDarkMode); // Debugging line
   };
 
+  useEffect(() => {
+    if (isDarkMode) {
+      document.body.classList.add('dark-mode');
+      document.body.classList.remove('light-mode');
+      console.log('Dark mode applied'); // Debugging line
+    } else {
+      document.body.classList.add('light-mode');
+      document.body.classList.remove('dark-mode');
+      console.log('Dark mode removed'); // Debugging line
+    }
+  }, [isDarkMode]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Real-Time Collaboration Tool</h1>
-        <button onClick={toggleDarkMode}>
-          {darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-        </button>
-      </header>
-      <Navbar />
-      <div className="content">
-        <Login />
-        <Register />
-      </div>
+    <div className={`app ${isDarkMode ? 'dark-mode' : ''}`}>
+      <Router>
+        <Routes>
+          <Route path="/" element={<LandingPage darkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
 
-export default App;
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);

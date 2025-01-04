@@ -6,24 +6,28 @@ import Register from './components/Register';
 import Login from './components/Login';
 import './styles/App.css'; // Import the CSS file
 
-const App = () => {
-  const [darkMode, setDarkMode] = useState(false);
+function App() {
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-    document.body.classList.toggle('dark-mode', !darkMode);
+    setIsDarkMode((prevMode) => !prevMode);
   };
 
   return (
-    <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
-      <Routes>
-        <Route path="/" element={<LandingPage darkMode={darkMode} toggleDarkMode={toggleDarkMode} />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
-      </Routes>
-    </Router>
+    <div className={isDarkMode ? 'dark-mode' : 'light-mode'}>
+      <Router>
+        <button onClick={toggleDarkMode}>
+          Switch to {isDarkMode ? 'Light' : 'Dark'} Mode
+        </button>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </Router>
+    </div>
   );
-};
+}
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<App />);

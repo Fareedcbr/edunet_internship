@@ -7,18 +7,18 @@ function Login() {
       <h2>Login</h2>
       <form>
         <label>
-          Email:
+          <p>Email:</p>
           <input type="email" name="email" />
         </label>
         <br />
         <label>
-          Password:
+          <p>Password:</p>
           <input type="password" name="password" />
         </label>
         <br />
         <button type="submit">Login</button>
       </form>
-      <p>If you are new, <Link to="/register">Register here</Link></p>
+      <p>Please log in to access your account. Don’t have an account? <Link to="/register">click here</Link> to register.</p>
     </div>
   );
 }

@@ -15,9 +15,6 @@ function LandingPage({ darkMode, toggleDarkMode }) {
           <Link to="/login" className="btn">Login</Link>
           <Link to="/register" className="btn">Register</Link>
         </div>
-        <button onClick={toggleDarkMode} className="toggle-btn">
-          {darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-        </button>
       </header>
     </div>
   );
