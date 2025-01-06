@@ -18,7 +18,7 @@ const Dashboard = () => {
                     },
                 });
                 setDocuments(data);
-                console.log(data)
+                // console.log(data)
             } catch (error) {
                 console.error('Failed to fetch documents:', error);
                 navigate('/');
