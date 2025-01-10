@@ -14,8 +14,8 @@ function App() {
             <Navbar />
             <Routes>
                 <Route path="/" element={<LandingPage/>} />
-                <Route path="/login" element={<Login/>} />
                 <Route path="/register" element={<Register/>} />
+                <Route path="/login" element={<Login/>} />
                 <Route path="/dashboard" element={<Dashboard/>} />
                 <Route path="/document/:id" element={<DocumentDetails/>} />
                 <Route path="/document/new" element={<DocumentForm />} />

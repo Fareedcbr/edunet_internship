@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LandingPage from './components/LandingPage';
 import Register from './components/Register';
 import Login from './components/Login';
+import Dashboard from './components/Dashboard'; // Import the Dashboard component
 import './styles/App.css'; // Import the CSS file
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/dashboard" element={<Dashboard />} /> {/* Add the dashboard route */}
         </Routes>
       </Router>
     </div>
